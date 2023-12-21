@@ -77,6 +77,7 @@ namespace TastyNibblesBDD.Features
         [NUnit.Framework.DescriptionAttribute("User buys product")]
         [NUnit.Framework.CategoryAttribute("End_to_End_2")]
         [NUnit.Framework.TestCaseAttribute("Pickle", "6", null)]
+        [NUnit.Framework.TestCaseAttribute("tuna", "6", null)]
         public virtual void UserBuysProduct(string searchtext, string productno, string[] exampleTags)
         {
             string[] @__tags = new string[] {

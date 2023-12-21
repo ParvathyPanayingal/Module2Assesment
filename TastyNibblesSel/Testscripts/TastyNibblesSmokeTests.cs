@@ -27,7 +27,7 @@ namespace TastyNibblesSel.Testscripts
             TastyNibblesHomePage tastyNibblesHomePage = new(driver);
             tastyNibblesHomePage.ClickLogo();
             Thread.Sleep(2000);
-            TakeScreenShot();
+            //TakeScreenShot();
             Log.Information("Page reloaded");
             try
             {
@@ -45,7 +45,7 @@ namespace TastyNibblesSel.Testscripts
 
                 test = extent.CreateTest("Tasty Nibbles logo Test");
                 test.Fail("Tasty Nibbles logo  Test failed");
-                TakeScreenShot();
+                //TakeScreenShot();
             }
             Log.CloseAndFlush();
 
@@ -72,7 +72,7 @@ namespace TastyNibblesSel.Testscripts
             TastyNibblesHomePage tastyNibblesHomePage = new(driver);
             tastyNibblesHomePage.ClickReadyToEat();
             Thread.Sleep(2000);
-            TakeScreenShot();
+            //TakeScreenShot();
             Log.Information("Page reloaded");
             try
             {
@@ -90,7 +90,7 @@ namespace TastyNibblesSel.Testscripts
 
                 test = extent.CreateTest("Readt To Eat Test");
                 test.Fail("Read To Eat  Test failed");
-                TakeScreenShot();
+                //TakeScreenShot();
             }
             Log.CloseAndFlush();
 

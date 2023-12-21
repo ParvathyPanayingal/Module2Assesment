@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports;
 using Serilog;
+using TastyNibblesSel.Utilities;
 
 namespace TastyNibblesSel
 {
@@ -97,18 +98,7 @@ namespace TastyNibblesSel
             driver?.Quit();
             extent.Flush();
         }
-        public void TakeScreenShot()
-        {
-            ITakesScreenshot iss = (ITakesScreenshot)driver;
-            Screenshot ss = iss.GetScreenshot();
-
-            string currdir = Directory.GetParent(@"../../../").FullName;
-            string? filepath = currdir + "/Screenshots/ss_" +
-                DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".png";
-
-            ss.SaveAsFile(filepath);
-
-        }
+       
 
         protected void LogTestResult(string testName, string result, string errorMessage = null)
         {
@@ -121,7 +111,11 @@ namespace TastyNibblesSel
                 test.Pass(result);
             }
             else
-            {
+            {//taking screenshot while there is error
+                string filepath = ScreenShots.TakeScreenShot(driver);
+
+                test.AddScreenCaptureFromPath(filepath);
+
                 Log.Error($"Test failed for {testName}. \n Exception: \n {errorMessage}");
                 test.Fail(result);
             }

@@ -1,3 +1,4 @@
+using AventStack.ExtentReports;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using Serilog;
@@ -13,12 +14,17 @@ namespace TastyNibblesBDD.StepDefinitions
     {
         IWebDriver? driver = AllHooks.driver;
         string? label;
-
+        ExtentTest test;
+        ExtentReports extent=AllHooks.extent;
+        
         [Given(@"User is on home page")]
         public void GivenUserIsOnTheHomePage()
         {
-            driver.Url = "https://www.tastynibbles.in/";
-            driver.Manage().Window.Maximize();
+            // driver.Url = "https://www.tastynibbles.in/";
+            // driver.Manage().Window.Maximize();
+            // AllHooks.InitializeBrowser();
+           
+            
         }
 
         [When(@"User will type the '([^']*)' in the search box")]
@@ -41,6 +47,8 @@ namespace TastyNibblesBDD.StepDefinitions
             try
             {
                 Assert.That(driver.Url.Contains(searchtext));
+                test=extent.CreateTest("sdvgasdhg");
+                test.Pass();
                 LogTestResult("Search Test", "Search Test Success");
             }
             catch (AssertionException ex)

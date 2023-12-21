@@ -16,3 +16,4 @@ Scenario Outline: User buys product
 Examples: 
 	| searchtext | productno |
 	| Pickle     | 6         |
+	| tuna     | 6         |

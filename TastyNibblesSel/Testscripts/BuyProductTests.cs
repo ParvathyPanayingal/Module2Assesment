@@ -56,7 +56,7 @@ namespace TastyNibblesSel.Testscripts
                 string? pincode = excelData?.Pincode;
                 tastyNibblesHomePage.ClickSearchIcon();
                 tastyNibblesHomePage.TypeSearchInput(searchText);
-                TakeScreenShot();
+               // TakeScreenShot();
                 Log.Information("Searched for pickle");
 
                 picklesResultPage.ClickProduct();
@@ -81,9 +81,9 @@ namespace TastyNibblesSel.Testscripts
                     Log.Error($"Test failed for select Product. \n Exception: {ex.Message}");
                     test = extent.CreateTest("select ProductTest");
                     test.Fail("select Product Test failed");
-                    TakeScreenShot();
+                    //TakeScreenShot();
                 }
-                Thread.Sleep(3000);
+                
                 productDetailsPage.ClickAddToCartButton();
                 Thread.Sleep(2000);
                 productDetailsPage.ClickCheckOutButton();
@@ -103,7 +103,7 @@ namespace TastyNibblesSel.Testscripts
                     Log.Error($"Test failed for Checkout Page. \n Exception: {ex.Message}");
                     test = extent.CreateTest("Checkout Page Test");
                     test.Fail("Checkout Page Test failed");
-                    TakeScreenShot();
+                    //TakeScreenShot();
                 }
                 checkOutPage.EnterContact(contactNo);
                 checkOutPage.EnterFirstName(firstName);
@@ -134,7 +134,7 @@ namespace TastyNibblesSel.Testscripts
                     Log.Error($"Test failed for select Product. \n Exception: {ex.Message}");
                     test = extent.CreateTest("Buy Product Test");
                     test.Fail("Buy Product Test failed");
-                    TakeScreenShot();
+                    //TakeScreenShot();
                 }
 
             }
