@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium;
 using System;
@@ -6,11 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AventStack.ExtentReports.Reporter;
-using AventStack.ExtentReports;
 using Serilog;
 
-namespace SwaglabSel
+namespace SwaglabSel.Utilities
 {
     internal class CoreCodes
     {
@@ -18,16 +18,16 @@ namespace SwaglabSel
         public Dictionary<string, string> properties;
         public static IWebDriver driver;
 
-        public ExtentReports extent;
-        ExtentSparkReporter sparkReporter;
-        public ExtentTest test;
+        public static ExtentReports extent;
+        static ExtentSparkReporter sparkReporter;
+        public static ExtentTest test;
 
         public void ReadConfigSettings()
         {
             properties = new Dictionary<string, string>();
 
             string currdir = Directory.GetParent(@"../../../").FullName;
-            string fileName = currdir + "/configsettings/config.properties";
+            string fileName = currdir + "/Properties/config.properties";
             string[] lines = File.ReadAllLines(fileName);
 
             foreach (string line in lines)
@@ -97,7 +97,7 @@ namespace SwaglabSel
             driver?.Quit();
             extent.Flush();
         }
-       
+
 
         protected void LogTestResult(string testName, string result, string errorMessage = null)
         {
@@ -111,7 +111,7 @@ namespace SwaglabSel
             }
             else
             {//taking screenshot while there is error
-                string filepath = ScreenShots.TakeScreenShot(driver);
+                string filepath = ScreenShot.TakeScreenShot(driver);
 
                 test.AddScreenCaptureFromPath(filepath);
 

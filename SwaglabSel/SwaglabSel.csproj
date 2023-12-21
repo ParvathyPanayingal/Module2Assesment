@@ -31,13 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
+    <Folder Include="ExtentReports\" />
     <Folder Include="TestData\" />
     <Folder Include="Logs\" />
     <Folder Include="Reports\" />
     <Folder Include="Screenshots\" />
-    <Folder Include="Tests\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>

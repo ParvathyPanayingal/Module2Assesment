@@ -11,6 +11,7 @@ using TastyNibblesSel.Utilities;
 
 namespace TastyNibblesSel.Testscripts
 {
+    [TestFixture]
     internal class BuyProductTests:CoreCodes
     {
         [Test]
